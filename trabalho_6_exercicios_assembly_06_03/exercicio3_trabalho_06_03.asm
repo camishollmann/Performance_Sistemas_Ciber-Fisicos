@@ -1,22 +1,23 @@
-Inicio:
+inicio:
 mov eax, 13
 mov ebx, 2
 
-Loop:
+mov ecx, 1
+loop:
 cmp ebx, eax
-jge Fim
+jge fim
 
-mov edx, 
+mov edx, 0
 div ebx
 
 cmp edx, 0
-je NaoPrimo
+je naoprimo
 
 inc ebx
-jmp Loop
+jmp loop
 
-NaoPrimo:
+naoprimo:
+mov ecx, 0
+jmp fim
 
-jmp Fim
-
-Fim:
+fim:
