@@ -1,10 +1,11 @@
-numero_primo = 13
+numero_primo = 10
 divisor = 2
 
 eh_primo = True
 
-while (divisor < numero_primo):
+while (eh_primo and divisor < numero_primo):
     if numero_primo % divisor == 0:
         eh_primo = False
-        exit()
     divisor += 1
+
+# print(eh_primo)

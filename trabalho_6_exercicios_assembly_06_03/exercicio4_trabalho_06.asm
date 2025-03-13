@@ -1,7 +1,7 @@
 inicio:
 mov eax, 2
 mov ebx, 4
-mov edx ,1 
+mov edx, 1 
 
 loop:
 dec ebx
