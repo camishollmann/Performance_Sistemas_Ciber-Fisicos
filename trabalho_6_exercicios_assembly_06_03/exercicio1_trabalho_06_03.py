@@ -1,3 +1,4 @@
+# Numero primo ou nao primo.
 eax = 3
 
 if eax == 10:
