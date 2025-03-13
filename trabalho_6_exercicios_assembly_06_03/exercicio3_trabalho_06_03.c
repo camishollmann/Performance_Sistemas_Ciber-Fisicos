@@ -12,5 +12,5 @@ int main(){
             eh_primo = 0;
         divisor++;
     }
-    printf("%d\n", eh_primo);
+    // printf("%d\n", eh_primo);
 }

@@ -1,23 +1,21 @@
 inicio:
-mov eax, 13
-mov ebx, 2
+mov eax,7
+mov ebx,2
+mov ecx,1
+mov edx,0
 
-mov ecx, 1
-loop:
-cmp ebx, eax
+repeticao:
+cmp ecx,edx
+je fim
+cmp ebx,eax
 jge fim
 
-mov edx, 0
 div ebx
-
-cmp edx, 0
+cmp edx,ecx
 je naoprimo
-
 inc ebx
-jmp loop
+jmp repeticao
 
 naoprimo:
-mov ecx, 0
-jmp fim
-
+mov ecx,0
 fim:
