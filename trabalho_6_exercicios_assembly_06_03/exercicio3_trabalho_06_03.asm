@@ -1,3 +1,5 @@
+# fazer compare com o edx para valor 0!
+
 inicio:
 mov eax,7
 mov ebx,2

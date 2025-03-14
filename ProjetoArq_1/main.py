@@ -29,13 +29,25 @@ def buscarEDecodificarInstrucao():
 
     print(instrucao)
 
+    # ADD:
     if instrucao == 0x01:
         print('ADD Reg, Reg')
         return 0x01
 
+    # MOV:
     if instrucao == 0x40:
         print('MOV Reg, Byte')
         return 0x40
+    
+    # INC:
+    if instrucao == 0x10:
+        print('INC Reg, Byte')
+    return 0x10
+
+    # DEC:
+    if instrucao == 0x20:
+        print('DEC Reg, Byte')
+    return 0x20
 
     return -1
 
@@ -47,7 +59,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
     global registrador_dx
     global flag_zero
 
-    # Implementando o ADD:
+    # ADD:
     if idInstrucao == 0x01: 
         # O operador 1 aponta o valor que ele quer manipular
         operador1 = memoria.getValorMemoria(registrador_cp + 1)
@@ -93,7 +105,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
             elif operador2 == 0x05:
                 registrador_ax = registrador_dx + registrador_dx
 
-    # É um mov?
+    # MOV:
     if idInstrucao == 0x40:
         # O operador 1 aponta o valor que ele quer manipular
         operador1= memoria.getValorMemoria(registrador_cp + 1)
@@ -108,6 +120,32 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
         elif operador1 == 0x05:
             registrador_dx = operador2
 
+    # INC:
+    if idInstrucao == 0x10:
+        operador1= memoria.getValorMemoria(registrador_cp + 1)
+
+        if operador1 == 0x02:
+            registrador_ax = registrador_ax + 1
+        elif operador1 == 0x03:
+            registrador_bx = registrador_bx + 1
+        elif operador1 == 0x04:
+            registrador_cx = registrador_cx + 1
+        elif operador1 == 0x05:
+            registrador_dx = registrador_dx + 1
+
+    # DEC:
+    if idInstrucao == 0x20:
+        operador1= memoria.getValorMemoria(registrador_cp + 1)
+
+        if operador1 == 0x02:
+            registrador_ax = registrador_ax - 1
+        elif operador1 == 0x03:
+            registrador_bx = registrador_bx - 1
+        elif operador1 == 0x04:
+            registrador_cx = registrador_cx - 1
+        elif operador1 == 0x05:
+            registrador_dx = registrador_dx - 1
+
     # print ('Implementar a lerOperadoresExecutarInstrucao')
 
 def calcularProximaInstrucao(idInstrucao):
@@ -120,9 +158,12 @@ def calcularProximaInstrucao(idInstrucao):
 
     if idInstrucao == 0x01:
         registrador_cp = registrador_cp + 3
-
-    if idInstrucao == 0x40:
+    elif idInstrucao == 0x40:
         registrador_cp = registrador_cp + 3
+    elif idInstrucao == 0x10:
+        registrador_cp = registrador_cp + 2
+    elif idInstrucao == 0x20:
+        registrador_cp = registrador_cp + 2
 
     print ('Implementar a calcularProximaInstrucao')
 
