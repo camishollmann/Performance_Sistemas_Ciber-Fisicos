@@ -23,5 +23,3 @@ dec edx
 
 
 fim:
-Exercício dois de assembly
-boa obrigada!

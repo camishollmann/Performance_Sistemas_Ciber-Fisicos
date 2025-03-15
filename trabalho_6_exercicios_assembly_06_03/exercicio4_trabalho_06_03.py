@@ -1,4 +1,9 @@
-x = 4
-b = 2 
-c = x ** b
-print(c)
+numero = 10
+potencia = 3
+resultado = 1
+
+while potencia > 0:
+    resultado *= numero
+    potencia -= 1
+
+print(resultado)
