@@ -1,4 +1,4 @@
-#import <stdio.h>
+#include <stdio.h>
 
 int main(){
     int numero = 10;
@@ -9,5 +9,5 @@ int main(){
         resultado *= numero;
         potencia -= 1;
     }
-    printf("%d\n"resultado);
+    printf("%d\n",resultado);
 }
