@@ -1,14 +1,13 @@
 inicio:
-mov eax, 2
-mov ebx, 4
-mov edx, 1 
+eax = 10
+ebx = 3
+edi = 1
 
-loop:
-dec ebx
-jz fim 
-imul edx, eax
-jmp loop
+repeticao:
+cmp ebx, 0
+je fim
+
+imul edi, eax
+dec ebx 
 
 fim:
-mov eax, 1 
-int 0x80
