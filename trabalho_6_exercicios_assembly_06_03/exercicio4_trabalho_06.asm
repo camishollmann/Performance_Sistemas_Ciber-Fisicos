@@ -1,13 +1,16 @@
 inicio:
-eax = 10
-ebx = 3
-edi = 1
+mov eax, 2 ; resultado deve ser 8
+mov ebx, 3
+mov ecx, eax
 
 repeticao:
+sub ebx, 1
 cmp ebx, 0
-je fim
+jz fim
 
-imul edi, eax
-dec ebx 
+mul ecx
+
+jmp repeticao
 
 fim:
+mov edi, eax
