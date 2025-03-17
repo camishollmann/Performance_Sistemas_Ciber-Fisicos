@@ -1,23 +1,28 @@
-# fazer compare com o edx para valor 0!
-
 inicio:
-mov eax,7
-mov ebx,2
-mov ecx,1
-mov edx,0
+mov eax, 5
+mov ebx, 2
+mov ecx, 0
 
 repeticao:
-cmp ecx,edx
-je fim
-cmp ebx,eax
-jge fim
+cmp ebx, eax
+jge ehprimo
 
+condicao:
+mov edx, 0   
 div ebx
-cmp edx,ecx
-je naoprimo
+
+cmp edx, ecx
+jz naoehprimo
+
+mov eax, 5
 inc ebx
 jmp repeticao
 
-naoprimo:
-mov ecx,0
+naoehprimo:
+mov edi, 0
+jmp fim
+
+ehprimo:
+mov edi, 1
+
 fim:
