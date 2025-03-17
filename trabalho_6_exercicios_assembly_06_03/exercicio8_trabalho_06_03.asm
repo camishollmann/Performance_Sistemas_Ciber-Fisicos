@@ -1,17 +1,21 @@
 inicio:
-    mov eax, 20
-    mov ebx, 2
-    xor edx, edx
+mov eax, 10 
+mov ebx, 2
+mov edx, 0
 
-    div ebx
+div ebx
 
-    cmp edx, 0
-    je numeroimpar
+cmp edx, 0
+jz ehpar
 
-    mov edi, 0
-    jmp fim
+ehimpar:
+mov edi, 1
+jmp fim
 
-numeroimpar:
-    mov edi, 1
+ehpar:
+mov edi, 0
+jmp fim
+
 
 fim:
+
