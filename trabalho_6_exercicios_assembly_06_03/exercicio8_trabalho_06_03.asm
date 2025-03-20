@@ -1,21 +1,19 @@
 inicio:
-mov eax, 10 
+mov eax, 5
 mov ebx, 2
-mov edx, 0
+mov ecx, 0
 
+divisao:
 div ebx
+cmp edx, ecx
+jz par
 
-cmp edx, 0
-jz ehpar
-
-ehimpar:
+impar:
 mov edi, 1
 jmp fim
 
-ehpar:
+par:
 mov edi, 0
-jmp fim
 
 
 fim:
-
