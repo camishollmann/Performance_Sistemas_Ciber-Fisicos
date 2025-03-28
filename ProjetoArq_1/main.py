@@ -49,6 +49,21 @@ def buscarEDecodificarInstrucao():
         print('DEC Reg, Byte')
     return 0x20
 
+    # CMP:
+    if instrucao == 0x60:
+        print('CMP Reg, Byte')
+    return 0x60
+
+    # JZ:
+    if instrucao == 0x79:
+        print('JZ Byte')
+    return 0x79
+
+    # JMP:
+    if instrucao == 0x50:
+        print('JMP Byte')
+    return 0x50
+
     return -1
 
 def lerOperadoresExecutarInstrucao(idInstrucao):
@@ -108,7 +123,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
     # MOV:
     if idInstrucao == 0x40:
         # O operador 1 aponta o valor que ele quer manipular
-        operador1= memoria.getValorMemoria(registrador_cp + 1)
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
         operador2 = memoria.getValorMemoria(registrador_cp + 2)
 
         if operador1 == 0x02:
@@ -122,7 +137,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
 
     # INC:
     if idInstrucao == 0x10:
-        operador1= memoria.getValorMemoria(registrador_cp + 1)
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
 
         if operador1 == 0x02:
             registrador_ax = registrador_ax + 1
@@ -135,7 +150,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
 
     # DEC:
     if idInstrucao == 0x20:
-        operador1= memoria.getValorMemoria(registrador_cp + 1)
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
 
         if operador1 == 0x02:
             registrador_ax = registrador_ax - 1
@@ -145,8 +160,47 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
             registrador_cx = registrador_cx - 1
         elif operador1 == 0x05:
             registrador_dx = registrador_dx - 1
+        
+    # CMP:
+    if idInstrucao == 0x60:
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
+        operador2 = memoria.getValorMemoria(registrador_cp + 2)
 
-    # print ('Implementar a lerOperadoresExecutarInstrucao')
+        if operador1 == 0x02:
+            if registrador_ax == registrador_cp:
+                flag_zero = True
+            else:
+                flag_zero = False
+        if operador1 == 0x03:
+            if registrador_bx == registrador_cp:
+                flag_zero = True
+            else:
+                flag_zero = False
+        if operador1 == 0x04:
+            if registrador_cx == registrador_cp:
+                flag_zero = True
+            else:
+                flag_zero = False
+        if operador1 == 0x05:
+            if registrador_dx == registrador_cp:
+                flag_zero = True
+            else:
+                flag_zero = False
+    
+    # JZ:
+    if idInstrucao == 0x79:
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
+    
+    if flag_zero == 1:
+        registrador_cp = operador1
+    else: 
+        registrador_cp = registrador_cp + 2
+
+    # JMP:
+    if idInstrucao == 0x50:
+        operador1 = memoria.getValorMemoria(registrador_cp + 1)
+    
+    registrador_cp = operador1
 
 def calcularProximaInstrucao(idInstrucao):
     global registrador_ax
@@ -164,6 +218,8 @@ def calcularProximaInstrucao(idInstrucao):
         registrador_cp = registrador_cp + 2
     elif idInstrucao == 0x20:
         registrador_cp = registrador_cp + 2
+    elif idInstrucao == 0x60:
+        registrador_cp = registrador_cp + 3
 
     print ('Implementar a calcularProximaInstrucao')
 
