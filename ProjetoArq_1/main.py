@@ -11,11 +11,11 @@ registrador_dx = 0x00
 
 flag_zero = False
 
-memoria = MemoriaCache('arquivos_memoria/mov_mov_add.bin')
+#memoria = MemoriaCache('arquivos_memoria/mov_mov_add.bin')
 #memoria = MemoriaCache('arquivos_memoria/inc_dec.bin')
 #memoria = MemoriaCache('arquivos_memoria/todas_instrucoes.bin')
 #memoria = MemoriaCache('arquivos_memoria/programa_simples.bin')
-#memoria = MemoriaCache('arquivos_memoria/fibonacci_10.bin')
+memoria = MemoriaCache('arquivos_memoria/fibonacci_10.bin')
 
 def buscarEDecodificarInstrucao():
     global registrador_ax
@@ -42,27 +42,27 @@ def buscarEDecodificarInstrucao():
     # INC:
     if instrucao == 0x10:
         print('INC Reg, Byte')
-    return 0x10
+        return 0x10
 
     # DEC:
     if instrucao == 0x20:
         print('DEC Reg, Byte')
-    return 0x20
+        return 0x20
 
     # CMP:
     if instrucao == 0x60:
         print('CMP Reg, Byte')
-    return 0x60
+        return 0x60
 
     # JZ:
     if instrucao == 0x79:
         print('JZ Byte')
-    return 0x79
+        return 0x79
 
     # JMP:
     if instrucao == 0x50:
         print('JMP Byte')
-    return 0x50
+        return 0x50
 
     return -1
 
@@ -199,8 +199,7 @@ def lerOperadoresExecutarInstrucao(idInstrucao):
     # JMP:
     if idInstrucao == 0x50:
         operador1 = memoria.getValorMemoria(registrador_cp + 1)
-    
-    registrador_cp = operador1
+        registrador_cp = operador1
 
 def calcularProximaInstrucao(idInstrucao):
     global registrador_ax
