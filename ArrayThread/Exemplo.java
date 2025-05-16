@@ -22,6 +22,20 @@ class InicializaThread extends Thread{
     }
 }
 
+class ContaThread extends Thread{
+    private int contaNumeros = 0;
+    private int inicio;
+    private int fim;
+    private Double[] vetor;
+
+
+    for(int i = inicio; i < fim; i++){
+        if ((this.vetor[i] > 0.25) && (this.vetor[i] < 0.75)){
+            contaNumeros++;
+        }
+    }
+}
+
 public class Exemplo {
     public static void main(String[] args){
         Double[] vetor = new Double[2_000_000];
