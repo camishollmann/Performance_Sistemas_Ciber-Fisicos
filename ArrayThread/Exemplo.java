@@ -2,7 +2,7 @@ package ArrayThread;
 
 import java.util.Random;
 
-class InicializaThread extends Thread{
+class InicializaThread extends Thread {
     private int inicio;
     private int fim;
     private Double[] vetor;
@@ -16,7 +16,7 @@ class InicializaThread extends Thread{
     public void run(){
         Random r = new Random(1);
 
-        for(int i = inicio; i < fim; i++){
+        for(int i = inicio; i < this.fim; i++){
             this.vetor[i] = r.nextDouble();
         }
     }
@@ -39,20 +39,16 @@ class ContaThread extends Thread{
 public class Exemplo {
     public static void main(String[] args){
         Double[] vetor = new Double[2_000_000];
-        InicializaThread thread1 = new InicializaThread(vetor, 0, 1_000_000);
+        Thread thread1 = new Thread("thread 1");
         InicializaThread thread2 = new InicializaThread(vetor, 1_000_000, 2_000_000);
 
         thread1.start();
         thread2.start();     
-        
-        try{
-            thread1.join();
-        } catch (RuntimeException e){
-            throw new RuntimeException(e);
-        }
+
+        thread1.InicializaThread(vetor, 0, 1_000_000_000);
 
         try{
-            thread2.join();
+            thread1.join();
         } catch (RuntimeException e){
             throw new RuntimeException(e);
         }
