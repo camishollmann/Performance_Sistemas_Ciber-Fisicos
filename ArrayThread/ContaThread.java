@@ -4,11 +4,10 @@ class ContaThread extends Thread{
     private int fim;
     private Double[] vetor;
 
-    public ContaThread(int contaNumeros, int inicio, int fim, Double[] vetor){
-        this.contaNumeros = contaNumeros;
+    public ContaThread(Double[] vetor, int inicio, int fim){
+        this.vetor = vetor;      
         this.inicio = inicio;
         this.fim = fim;
-        this.vetor = vetor;
     }
 
     public void run(){

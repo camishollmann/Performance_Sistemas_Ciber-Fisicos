@@ -4,7 +4,7 @@ class InicializaThread extends Thread{
     private Double[] vetor;
     
     public InicializaThread(Double[] vetor, int inicio, int fim){
-        this.vetor = vetor;
+        this.vetor = vetor;        
         this.inicio = inicio;
         this.fim = fim;
     }
