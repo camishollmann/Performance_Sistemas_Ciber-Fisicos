@@ -19,7 +19,7 @@ class InicializaEContaThread extends Thread{
             vetor[i] = r.nextDouble();
             if ((vetor[i] > 0.25) && (vetor[i] < 0.75)){
                 contador++;
-            } 
+            }
         }
     }
 }
