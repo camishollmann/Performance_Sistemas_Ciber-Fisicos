@@ -5,7 +5,7 @@ class InicializaEContaThread extends Thread{
     private int fim;
     private Double[] vetor;
     
-    public InicializaThread(Double[] vetor, int inicio, int fim){
+    public InicializaEContaThread(Double[] vetor, int inicio, int fim){
         this.vetor = vetor;        
         this.inicio = inicio;
         this.fim = fim;
