@@ -7,12 +7,19 @@ public class Main{
         InicializaEContaThread thread2 = new InicializaEContaThread(vetor, 1_000_000, 2_000_000);
  
         thread1.start();
-        thread2.start();     
 
         try{
             thread1.join();
-        } catch (RuntimeException e){
+        } catch (InterruptedException e){
             throw new RuntimeException(e);
+        }
+
+        thread2.start();     
+
+        try{
+            thread2.join();
+        } catch (InterruptedException e){
+            e.printStackTrace();
         }
 
         System.out.println("Encerrou inicialização");
