@@ -5,14 +5,12 @@ import java.util.Random;
 class InicializaThread extends Thread{
     private int inicio;
     private int fim;
-    private Double[] vetor;
-    // private int contador;
+    private double[] vetor;
     
-    public InicializaThread(Double[] vetor, int inicio, int fim){
+    public InicializaThread(double[] vetor, int inicio, int fim){
         this.vetor = vetor;        
         this.inicio = inicio;
         this.fim = fim;
-        // this.contador = 0;
     }
 
     public void run(){
@@ -23,7 +21,4 @@ class InicializaThread extends Thread{
         }
     }
 
-    // public int getContador(){
-    //     return contador;
-    // }
 }

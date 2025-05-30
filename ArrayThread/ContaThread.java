@@ -3,10 +3,10 @@ package ArrayThread;
 public class ContaThread extends Thread{
     private int inicio;
     private int fim;
-    private Double[] vetor;
+    private double[] vetor;
     private int contador;
 
-    public ContaThread (int inicio, int fim, Double[] vetor, int contador){
+    public ContaThread (int inicio, int fim, double[] vetor, int contador){
         this.inicio = inicio;
         this.fim = fim;
         this.vetor = vetor;
