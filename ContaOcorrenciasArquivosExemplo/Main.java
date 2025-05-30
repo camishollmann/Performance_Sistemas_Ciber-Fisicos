@@ -1,4 +1,4 @@
-package conta_ocorrencias;
+package ContaOcorrenciasArquivosExemplo;
 
 import java.io.File;
 import java.util.ArrayList;
