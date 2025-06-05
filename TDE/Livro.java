@@ -11,7 +11,7 @@ public class Livro{
     public synchronized void emprestar(int idUsuario){
         while(emprestado){
             try{
-                System.out.printf("Usuário " + idUsuario + " esperando livro " + idLivro " ficar disponível");
+                System.out.println("Usuário " + idUsuario + " esperando livro " + idLivro + " ficar disponível");
                 wait();
             } catch (InterruptedException e){
                 Thread.currentThread().interrupt();
