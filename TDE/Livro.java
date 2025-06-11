@@ -4,7 +4,7 @@ public class Livro{
     private boolean emprestado = false;
     private int idLivro;
 
-    public Livro(int numero){
+    public Livro(int idLivro){
         this.idLivro = idLivro;
     }
 
@@ -18,7 +18,7 @@ public class Livro{
             }
         }
         emprestado = true;
-        System.out.printf("Usuário " + idUsuario + "emprestou livro " + idLivro);
+        System.out.println("Usuário " + idUsuario + " emprestou livro " + idLivro);
     }
 
     public synchronized void devolver(int idUsuario){

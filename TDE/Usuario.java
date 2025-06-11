@@ -4,10 +4,12 @@ import java.util.Random;
 
 public class Usuario extends Thread{
     private int idUsuario;
+    private Livro[] livros;
     Random r = new Random();
 
-    public Usuario(int idUsuario){
+    public Usuario(int idUsuario, Livro[] livros){
         this.idUsuario = idUsuario;
+        this.livros = livros;
     }
 
     public void run(){
